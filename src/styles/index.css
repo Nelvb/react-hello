@@ -1,29 +1,47 @@
-
-/* 
-
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
-
-*/
-.counter-holder{
+.counter-holder {
     background-color: black;
-    width: 80%;
+    width: 100%;
     display: flex;
-    justify-content: space-around;
-    margin: 0 auto;
+    justify-content: center;
     padding: 2rem;
+    flex-wrap: nowrap;
 }
-.digit{
+
+.digit {
     background-color: rgba(169, 169, 169, 0.099)!important;
     color: white;
     font-weight: bolder;
     font-size: 3.5rem;
     padding: 3rem;
     border: 1px solid rgb(72, 70, 70);
+    text-align: center;
+    margin: 0.5rem;
+    flex: 0 0 auto;
+}
 
+@media (max-width: 768px) {
+    .counter-holder {
+        padding: 1rem;
+        flex-wrap: wrap;
+        flex-direction: column; /* Cambio de dirección en pantallas más pequeñas */
+    }
+
+    .digit {
+        font-size: 2rem;
+        padding: 2rem;
+        flex: 1 0 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .counter-holder {
+        padding: 0.5rem;
+        flex-direction: column; /* Asegura que la dirección sea columna en pantallas muy pequeñas */
+    }
+
+    .digit {
+        font-size: 1.5rem;
+        padding: 1rem;
+        flex: 1 0 100%;
+    }
 }

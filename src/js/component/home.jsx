@@ -3,27 +3,28 @@ import { Digit } from "./digit";
 
 //create your first component
 const Home = () => {
-const [timer, setTimer]= useState(0)
+    const [timer, setTimer] = useState(0);
 
-useEffect(() => {
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTimer(value => value + 1);
+        }, 1000);
 
-	setTimeout(() => {
-		setTimer(value => value+1)
-		
-	}, 1000);
-},[timer] )
+        return () => clearInterval(interval); // limpiar el interval
+    }, []);
+
     return (
-        <main className="text-center">
-			<section className= "counter-holder">
-            <Digit number={<span className="fa fa-clock"></span>} />
-            <Digit number={Math.floor((timer/100000)%10)}/>
-            <Digit number={Math.floor((timer/10000)%10)}/>
-            <Digit number={Math.floor((timer/1000)%10)}/>
-            <Digit number={Math.floor((timer/100)%10)}/>
-            <Digit number={Math.floor((timer/10)%10)}/>
-            <Digit number={Math.floor(timer%10)} />
-			</section>
-        </main>
+        <div className="container text-center mt-5">
+            <div className="d-flex justify-content-center counter-holder">
+                <Digit number={<span className="fa fa-clock"></span>} />
+                <Digit number={Math.floor((timer / 100000) % 10)} />
+                <Digit number={Math.floor((timer / 10000) % 10)} />
+                <Digit number={Math.floor((timer / 1000) % 10)} />
+                <Digit number={Math.floor((timer / 100) % 10)} />
+                <Digit number={Math.floor((timer / 10) % 10)} />
+                <Digit number={Math.floor(timer % 10)} />
+            </div>
+        </div>
     );
 };
 
