@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Digit } from "./digit";
 
-//create your first component
 const Home = () => {
     const [timer, setTimer] = useState(0);
 
